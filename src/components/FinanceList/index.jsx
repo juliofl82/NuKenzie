@@ -1,30 +1,20 @@
-import { FinanceCard } from "./FinanceCard";
-import { financialItems } from "../../data";
-import styles from "./style.module.scss";
-import { useState } from "react";
+import React from 'react';
+import { FinanceCard } from './FinanceCard';
+import styles from './FinanceList.module.scss'; // Assegure-se de ter o arquivo de estilos correspondente
 
-export const FinanceList = () => {
-const [items, setItems] = useState(financialItems);
-
-const handleDelete = (index) => {
-    const NewItens = items.filter((_, i) => i !== index);
-    setItems(NewItens);
-};
-
+export const FinanceList = ({ transactions, onDeleteTransaction }) => {
     return (
-        <section className={styles.FinanceListSection}>
-            <div>
-                <h2>Resumo financeiro</h2>
+        <>
+            <h2>Resumo financeiro</h2>
+            <div className={styles.financeList}>
+                {transactions.map((transaction, index) => (
+                    <FinanceCard
+                        key={index}
+                        transaction={transaction}
+                        onDelete={() => onDeleteTransaction(index)}
+                    />
+                ))}
             </div>
-            <div>
-            {items.map((item, index) => (
-                <FinanceCard
-                    key={index}
-                    item={item}
-                    onDelete={() => handleDelete(index)}
-                />
-            ))}
-            </div>
-        </section>
+        </>
     );
 };

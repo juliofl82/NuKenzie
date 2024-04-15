@@ -1,12 +1,17 @@
-import styles from "./style.module.scss";
+import React from 'react';
+import styles from './FinanceCard.module.scss'; 
 
-export const FinanceCard = ({item, onDelete}) => {
+export const FinanceCard = ({ transaction, onDelete }) => {
     return (
         <div className={styles.financeCard}>
-            <p>Descrição: {item.descricao}</p>
-            <p>Valor: R${item.valor}</p>
-            <p>Tipo: {item.tipo}</p>
-            <button onClick={onDelete}>Delete</button>
+            <div className={styles.descricao}>
+                <p>Descrição: {transaction.descricao}</p>
+                <p>Tipo: {transaction.tipo}</p>
+            </div>
+            <div className={styles.valor}>
+                <p>R${transaction.valor.toFixed(2)}</p>
+                <button onClick={onDelete}>Delete</button>
+            </div>
         </div>
     );
 };

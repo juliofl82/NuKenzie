@@ -1,0 +1,65 @@
+@import "../../styles/index.scss";
+
+.formGrid {
+    display: flex;
+    flex-direction: column;
+    max-width: 22.1875rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: rgba(0, 0, 0, 0.2) 1px solid;
+    padding: 20px; // Adicionado para melhorar o espaçamento interno
+}
+
+.inputDescricao,
+.inputType,
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 100%; // Assumindo que o contêiner parent tem um max-width
+    margin-bottom: 1rem;
+}
+
+label {
+     @include caption;
+    margin-bottom: 0.5rem;
+    
+}
+
+input,
+select {
+    width: 314px;
+    height: 3.3rem;
+    top: 34.1px;
+    padding: 0px 16px 0px 16px;
+    gap: 10px;
+    border-radius: 8px;        
+    background: rgba(248, 249, 250, 1);
+    border: none;
+}
+
+
+
+
+
+
+
+input[type='text'] {
+    @include headline;
+}
+
+.buttonForm {
+    @include buttonStyle;   
+    
+}
+
+.exTypo {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(134, 142, 150, 1);
+
+}
+

@@ -1,0 +1,30 @@
+.financeCard {
+    display: flex;
+    max-width: 35rem;
+    width: 100vw;
+    max-height: 5.4375rem;
+    height: 100vh;
+    border-radius: 4px, 0px, 0px, 4px;
+    background-color: var(--grey-1);
+    justify-content: space-between;
+    margin-bottom: 1.5625rem;
+    align-items: center;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+    max-width: 21.0625rem;
+    width: 100vw;
+    max-height: 4.25rem;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.valor {
+    display: flex;
+    flex-direction: column;    
+    width: 4.1875rem;
+    height: 2.9375rem;
+    justify-content: space-between;
+}

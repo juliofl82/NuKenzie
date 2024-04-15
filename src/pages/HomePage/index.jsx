@@ -1,26 +1,37 @@
-import { FinanceForm } from "../../components/FinanceForm";
-import { FinanceList } from "../../components/FinanceList";
-import { Header } from "../../components/Header";
-import { Total } from "../../components/Total";
-import styles from "./style.module.scss";
-
-
+import React, { useState } from 'react';
+import { Header } from '../../components/Header';
+import { FinanceForm } from '../../components/FinanceForm';
+import { FinanceList } from '../../components/FinanceList';
+import { Total } from '../../components/Total';
+import styles from './HomePage.module.scss'; 
 
 export const HomePage = () => {
+    const [transactions, setTransactions] = useState([]);
+
+    const handleAddTransaction = (newTransaction) => {
+        setTransactions([...transactions, newTransaction]);
+    };
+
+    const handleDeleteTransaction = (index) => {
+        setTransactions(transactions.filter((_, i) => i !== index));
+    };
+
     return (
-        <>
-            <Header/>
-            <main className={styles.mainContainer}>
+        <main>
+            <Header />
+            <div className={styles.mainContainer}>
                 <div>
-                    <FinanceForm />
-                    <div>
-                       <Total /> 
-                    </div>
+                    <section>
+                        <FinanceForm onAddTransaction={handleAddTransaction} />
+                    </section>
+                    <section>
+                        <Total transactions={transactions} />
+                    </section>
                 </div>
-                <div>
-                  <FinanceList />  
-                    </div>                 
-            </main>
-        </>
-    )
-}
+                <section>
+                    <FinanceList transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />
+                </section>
+            </div>
+        </main>
+    );
+};

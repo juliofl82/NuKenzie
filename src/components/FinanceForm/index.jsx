@@ -1,35 +1,58 @@
-import { useState } from "react";
-import styles from "./style.module.scss";
+import React, { useState } from 'react';
+import styles from './FinanceForm.module.scss'; // Certifique-se de que o caminho está correto
 
-export const FinanceForm = ({ onSubmit }) => {
+export const FinanceForm = ({ onAddTransaction }) => {
     const [descricao, setDescricao] = useState('');
     const [valor, setValor] = useState('');
     const [tipo, setTipo] = useState('entrada');
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit({ descricao, valor, tipo });
+        onAddTransaction({
+            descricao,
+            valor: parseFloat(valor), // Assegura que o valor seja numérico
+            tipo
+        });
+        // Reset dos campos após o envio
+        setDescricao('');
+        setValor('');
+        setTipo('entrada');
     };
 
     return (
         <form className={styles.formGrid} onSubmit={handleSubmit}>
-            <div className={styles.formInputsBox}>
-                <div className={styles.inputDescricao}>
-                    <label htmlFor="descricao">Descrição</label>
-                    <input type="text" placeholder="Digite aqui sua descrição" id="descricao" value={descricao} onChange={e => setDescricao(e.target.value)} />
-                    <span>Ex: Compra de roupas</span>
-                </div>
-                <div className={styles.inputType}>
-                    <label htmlFor="valor">Valor (R$)</label>
-                    <input type="number" id="valor" value={valor} onChange={e => setValor(e.target.value)} />
-                </div>
-                <div className={styles.input}>
-                    <select className={styles.select} value={tipo} onChange={e => setTipo(e.target.value)}>
-                        <option value="entrada">Entrada</option>
-                        <option value="despesa">Despesa</option>
-                    </select>
-                </div>
-                <button type="submit">Inserir valor</button>
-            </div >
+            <div className={styles.inputDescricao}>
+                <label htmlFor="descricao">Descrição</label>
+                <input
+                    type="text"
+                    placeholder="Digite aqui sua descrição"
+                    id="descricao"
+                    value={descricao}
+                    onChange={(e) => setDescricao(e.target.value)}
+                />
+                <p className={styles.exTypo}>Ex: Compra de roupas</p>
+            </div>
+            <div className={styles.inputType}>
+                <label htmlFor="valor">Valor (R$)</label>
+                <input
+                    type="text"
+                    id="valor"
+                    value={valor}
+                    onChange={(e) => setValor(e.target.value)}
+                />
+            </div>
+            <div className={styles.input}>
+                <label htmlFor="tipo">Tipo</label>
+                <select
+                    id="tipo"
+                    value={tipo}
+                    onChange={(e) => setTipo(e.target.value)}
+                >
+                    <option value="entrada">Entrada</option>
+                    <option value="despesa">Despesa</option>
+                </select>
+            </div>
+            <button className={styles.buttonForm} type="submit">Inserir valor</button>
         </form>
     );
 };

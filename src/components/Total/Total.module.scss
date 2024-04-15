@@ -1,0 +1,41 @@
+@import "../../styles/index.scss";
+
+.totalGrid {
+    display: flex;
+    align-items: center;
+    max-width: 22.1875rem;
+    width: 100vw;
+    max-height: 6rem;
+    height: 100vh;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    border: 1px var(--grey-2) solid;
+    padding: .9375rem;
+}
+
+.valor {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+    width: 8.625rem;
+    height: 3.625rem;
+
+    h3 {
+        @include title3;
+        color: rgba(33, 37, 41, 1);
+    }
+
+    p {
+        @include body;
+        color: rgba(52, 58, 64, 1);
+    }
+}
+
+.totalP {
+    @include title3;
+    width: 87px;
+    height: 30px;
+    top: 20px;
+    left: 248.9px;
+    color: rgba(253, 55, 126, 1);
+}
