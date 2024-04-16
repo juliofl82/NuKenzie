@@ -15,6 +15,25 @@
     justify-content: center;    
 }
 
+@mixin buttonDelete {
+    @include buttonSecondary;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: rgba(33, 37, 41, 1);
+    max-width: 3.0625rem;
+    width: 100vw;
+    max-height: 100vh;
+    height: 19px;
+    top: 51px;
+    left: 497px;
+    border-radius: 2px 0px 0px 0px;    
+}
+
+
+
+
+
 
 
 

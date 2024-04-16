@@ -5,7 +5,7 @@ import styles from './FinanceList.module.scss'; // Assegure-se de ter o arquivo 
 export const FinanceList = ({ transactions, onDeleteTransaction }) => {
     return (
         <>
-            <h2>Resumo financeiro</h2>
+            <h2 className={styles.listTitle}>Resumo financeiro</h2>
             <div className={styles.financeList}>
                 {transactions.map((transaction, index) => (
                     <FinanceCard

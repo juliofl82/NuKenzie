@@ -1,3 +1,6 @@
+@import "../../../styles/index.scss";
+
+
 .financeCard {
     display: flex;
     max-width: 35rem;
@@ -8,7 +11,15 @@
     background-color: var(--grey-1);
     justify-content: space-between;
     margin-bottom: 1.5625rem;
-    align-items: center;
+    align-items: center;    
+}
+
+.colorCard {
+    display: flex;
+    width: .25rem;
+    height: 5.4375rem;
+    border-radius: 4px 0px 0px 4px;
+    background-color: green;
 }
 
 .descricao {
@@ -19,12 +30,34 @@
     max-height: 4.25rem;
     height: 100vh;
     justify-content: space-between;
+    margin-left: -3.125rem;
+
+    p{
+        @include title3;
+    }
+
+    .tipoEntrada{
+        @include body;
+    }
 }
 
 .valor {
     display: flex;
     flex-direction: column;    
-    width: 4.1875rem;
-    height: 2.9375rem;
+    width: 100vw;
+    max-width: 4.1875rem;
+    height: 100vh;
+    max-height: 2.9375rem;
     justify-content: space-between;
+    margin-right: 1.875rem;
+    align-items: flex-end;
+
+    p{
+        @include body;
+    }
+
+    button{        
+        @include buttonDelete;
+                     
+    }
 }
