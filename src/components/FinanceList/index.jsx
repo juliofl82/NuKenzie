@@ -1,19 +1,24 @@
 import React from 'react';
 import { FinanceCard } from './FinanceCard';
-import styles from './FinanceList.module.scss'; // Assegure-se de ter o arquivo de estilos correspondente
+import styles from './FinanceList.module.scss'; 
+
 
 export const FinanceList = ({ transactions, onDeleteTransaction }) => {
     return (
         <>
             <h2 className={styles.listTitle}>Resumo financeiro</h2>
             <div className={styles.financeList}>
-                {transactions.map((transaction, index) => (
-                    <FinanceCard
-                        key={index}
-                        transaction={transaction}
-                        onDelete={() => onDeleteTransaction(index)}
-                    />
-                ))}
+                {transactions.length > 0 ? (
+                    transactions.map((transaction, index) => (
+                        <FinanceCard
+                            key={index}
+                            transaction={transaction}
+                            onDelete={() => onDeleteTransaction(index)}
+                        />
+                    ))
+                ) : (
+                    <p className={styles.empty}>Você ainda não possui nenhum lançamento</p>
+                )}
             </div>
         </>
     );

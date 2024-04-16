@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './FinanceForm.module.scss'; // Certifique-se de que o caminho está correto
+import styles from './FinanceForm.module.scss'; 
 
 export const FinanceForm = ({ onAddTransaction }) => {
     const [descricao, setDescricao] = useState('');
@@ -10,10 +10,10 @@ export const FinanceForm = ({ onAddTransaction }) => {
         e.preventDefault();
         onAddTransaction({
             descricao,
-            valor: parseFloat(valor), // Assegura que o valor seja numérico
+            valor: parseFloat(valor), 
             tipo
         });
-        // Reset dos campos após o envio
+        
         setDescricao('');
         setValor('');
         setTipo('entrada');

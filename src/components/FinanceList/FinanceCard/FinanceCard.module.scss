@@ -18,8 +18,15 @@
     display: flex;
     width: .25rem;
     height: 5.4375rem;
-    border-radius: 4px 0px 0px 4px;
-    background-color: green;
+    border-radius: 4px 0px 0px 4px;    
+}
+
+.colorCard.entrada {
+    background-color: var(--color-secondary);
+}
+
+.colorCard.despesa {
+    background-color: var(--grey-2);
 }
 
 .descricao {
@@ -57,7 +64,42 @@
     }
 
     button{        
-        @include buttonDelete;
-                     
+        @include buttonDelete;                     
+    }
+}
+
+@media (max-width: 426px) {
+
+    .financeCard {
+        display: flex;
+        max-width: 22.1875rem;
+        width: 100vw;
+        max-height: 5.4375rem;
+        height: 100vh;
+        border-radius: 4px, 0px, 0px, 4px;
+        background-color: var(--grey-1);
+        justify-content: space-between;
+        margin-bottom: 1.5625rem;
+        align-items: center;    
+    }
+
+    .descricao {
+        display: flex;
+        flex-direction: column;
+        max-width: 21.0625rem;
+        width: 100vw;
+        max-height: 4.25rem;
+        height: 100vh;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-left: 5px;
+    
+        p{
+            @include title3;
+        }
+    
+        .tipoEntrada{
+            @include body;
+        }
     }
 }
