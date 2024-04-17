@@ -29,4 +29,14 @@
         width: 100vw;        
     }
 
+    .empty {
+        @include title2;
+        display: flex;
+        max-width: 320px;
+        height: 34px;
+        top: 189px;
+        left: 679px;
+        text-align: center;
+    }
+
 }

@@ -16,9 +16,7 @@ export const FinanceCard = ({ transaction, onDelete, children }) => {
             <div className={`${styles.colorCard} ${colorClass}`}>
             </div>
             <div className={styles.descricao}>
-                {children}
-                {/* <p>Descrição: {transaction.descricao}</p>
-                <p className={styles.tipoEntrada} >{transaction.tipo}</p> */}
+                {children}                
             </div>
             <div className={styles.valor}>
                 <p>{formatCurrency(transaction.valor)}</p>
