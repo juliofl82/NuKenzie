@@ -8,9 +8,19 @@ export const FinanceForm = ({ onAddTransaction }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!descricao.trim() || !valor.trim()) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+        const valorNumerico = parseFloat(valor);
+        if (isNaN(valorNumerico) || valorNumerico <= 0) {
+            alert("Por favor, insira um valor positivo.");
+            return; 
+        }
+
         onAddTransaction({
             descricao,
-            valor: parseFloat(valor), 
+            valor: valorNumerico, 
             tipo
         });
         
