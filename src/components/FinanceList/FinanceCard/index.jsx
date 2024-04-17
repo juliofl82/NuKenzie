@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FinanceCard.module.scss';
 
-export const FinanceCard = ({ transaction, onDelete }) => {
+export const FinanceCard = ({ transaction, onDelete, children }) => {
 
     const formatCurrency = (value) => {
         return new Intl.NumberFormat('pt-BR', {
@@ -16,8 +16,9 @@ export const FinanceCard = ({ transaction, onDelete }) => {
             <div className={`${styles.colorCard} ${colorClass}`}>
             </div>
             <div className={styles.descricao}>
-                <p>Descrição: {transaction.descricao}</p>
-                <p className={styles.tipoEntrada} >{transaction.tipo}</p>
+                {children}
+                {/* <p>Descrição: {transaction.descricao}</p>
+                <p className={styles.tipoEntrada} >{transaction.tipo}</p> */}
             </div>
             <div className={styles.valor}>
                 <p>{formatCurrency(transaction.valor)}</p>
