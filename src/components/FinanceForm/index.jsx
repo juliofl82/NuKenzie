@@ -45,7 +45,9 @@ export const FinanceForm = ({ onAddTransaction }) => {
             <div className={styles.inputType}>
                 <label htmlFor="valor">Valor (R$)</label>
                 <input
-                    type="text"
+                    type="number"
+                    min="0.01"
+                    step="0.01"
                     id="valor"
                     value={valor}
                     onChange={(e) => setValor(e.target.value)}
